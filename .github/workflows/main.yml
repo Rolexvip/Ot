@@ -1,0 +1,27 @@
+name: Op
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore: 'README.md'
+  workflow_dispatch:
+   
+env:
+  # Change these values if you have forked it for your own works
+  GitHubMail: "onlytdm1v1@gmail.com"
+  GitHubName: "Anurag90op" 
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Set Git Configs & Secrets
+        run: |
+          chmod +x * 
+          ./install.sh 
+          pip install telebot pymongo aiohttp 
+          python3 S4.py
